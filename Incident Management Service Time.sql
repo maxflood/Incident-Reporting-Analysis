@@ -1,69 +1,68 @@
 
 
-------------------------------------- Initial Triage Analysis -------------------------------------------------------------------------
+------------------------------------- Step #1 Initial Triage Analysis -------------------------------------------------------------------------
 --- Initial Triage Cycle Time
 SELECT
-		CAST(eventupdatedt AS DATE) AS [Date],
+		CAST(____ AS DATE) AS [Date],
 		COUNT(*) AS [Number of Events for the Day],
-		MIN(CAST(EventUpdateDt AS time)) AS [Time the First Event was Processed],
-		MAX(CAST(EventUpdateDt AS time)) AS [Time the Last Event was Processed],
-		DATEDIFF(second, MIN(CAST(EventUpdateDt AS time)), MAX(CAST(EventUpdateDt AS time))) AS [Total Time Spent on All Events (seconds)], --includs additional 56 seconds to each event due to an assumption that that is how long it takes her to preprocess the events before the meeting with NQS
-		ROUND(CAST(DATEDIFF(second, MIN(CAST(EventUpdateDt AS time)), MAX(CAST(EventUpdateDt AS time))) AS float) / COUNT(*), 2) AS [Time Spend per Event During Morning NQS Meeting (seconds)],
-		(DATEDIFF(second, MIN(CAST(EventUpdateDt AS time)), MAX(CAST(EventUpdateDt AS time))) / COUNT(*)) + 56 AS [Time Spent per Event (seconds)], --divids the time spent by the number of events
-		ROUND((CAST(DATEDIFF(second, MIN(CAST(EventUpdateDt AS time)), MAX(CAST(EventUpdateDt AS time))) AS float) / COUNT(*)) + 56 , 2) AS [Time Spent per Event (seconds)] --includes pre-processing time 
-FROM QaEventInfo
-WHERE (CAST(EventUpdateDt AS TIME) BETWEEN '08:00:00' AND '11:00:00') --makes sure that events that are processed very early or very late do not effect the processing time calulation
-GROUP BY CAST(eventupdatedt AS DATE) 
-HAVING	(CAST(eventupdatedt AS DATE) BETWEEN '2018-03-12' AND '2019-01-31') --starting date of '2018-03-92' was used because that is when the newest version of OpenQA was put into use
+		MIN(CAST(____ AS time)) AS [Time the First Event was Processed],
+		MAX(CAST(____ AS time)) AS [Time the Last Event was Processed],
+		DATEDIFF(second, MIN(CAST(____ AS time)), MAX(CAST(____ AS time))) AS [Total Time Spent on All Events (seconds)], --includs additional 56 seconds to each event due to an assumption that that is how long it takes per event
+		ROUND(CAST(DATEDIFF(second, MIN(CAST(____ AS time)), MAX(CAST(____ AS time))) AS float) / COUNT(*), 2) AS [Time Spend per Event During Morning ____ Meeting (seconds)],
+		(DATEDIFF(second, MIN(CAST(____ AS time)), MAX(CAST(____ AS time))) / COUNT(*)) + 56 AS [Time Spent per Event (seconds)], --divids the time spent by the number of events
+		ROUND((CAST(DATEDIFF(second, MIN(CAST(____ AS time)), MAX(CAST(____ AS time))) AS float) / COUNT(*)) + 56 , 2) AS [Time Spent per Event (seconds)] --includes pre-processing time 
+FROM ____
+WHERE (CAST(____ AS TIME) BETWEEN '08:00:00' AND '11:00:00') --makes sure that events that are processed very early or very late do not effect the processing time calulation
+GROUP BY CAST(____ AS DATE) 
+HAVING	(CAST(____ AS DATE) BETWEEN '2018-03-12' AND '2019-01-31')
 		AND (COUNT(*))>10 --used to prevent sidutations where events processed very early in the morning effect the calculation
-		AND DATEDIFF(second, MIN(CAST(EventUpdateDt AS time)), MAX(CAST(EventUpdateDt AS time))) > 0 --prevents days when all events where processed at one time from being included into the calulation
+		AND DATEDIFF(second, MIN(CAST(____ AS time)), MAX(CAST(____ AS time))) > 0 --prevents days when all events where processed at one time from being included into the calulation
 ORDER BY CAST(eventupdatedt AS DATE)
 --- This ^ output is then used in excel to calculate the average and median time spent per event
---- Output in excel shows intial triage spends about 92 seconds per event
---- file path: H:\Quality and Safety\Interns\DMAIC Incident Management\Excel Files\Initial Triage Service Rate.xlsx
-
+--- Output in excel shows intial triage spends about ____ seconds per event
+--- file path: H:____
 
 
 --- Initial Triage Lead Time
-SELECT	EventId,
-		EventEnterDt,
-		EventUpdateDt,
+SELECT	____,
+		____,
+		____,
 		[Average Lead Time (Hours)]=	(
-				SELECT AVG(DATEDIFF(HOUR, CAST(EventEnterDt AS TIME), CAST(EventUpdateDt AS TIME)))
-				FROM QaEventInfo
+				SELECT AVG(DATEDIFF(HOUR, CAST(____ AS TIME), CAST(____ AS TIME)))
+				FROM ____
 				)
-FROM QaEventInfo
-WHERE EventUpdateDt BETWEEN '2018-3-12' AND '2019-3-12'
-/* Output shows that there is on average 5 hours lead time between when incidents are available to be worked on(4am) 
-and the time inital triages sends it to T-POW */
+FROM ____
+WHERE ____ BETWEEN '2018-3-12' AND '2019-3-12'
+/* Output shows that there is on average ____ hours lead time between when incidents are available to be worked on(____am) 
+and the time inital triages sends it to ____ */
 
 
 
 
---------------------------------------------- T-Pow Analysis ------------------------------------------------------------------------------
--- How many events were sent to DQS only and not NQS
-Select * From QaEventTriageWorkBench
-WHERE EventTriageEntityCode = 'DQS' AND EventTriageEnterDt BETWEEN '3-12-18' AND '5-1-19'
-ORDER BY EventTriagedToDeptDt
+--------------------------------------------- Step #2 ____ Analysis ------------------------------------------------------------------------------
+-- How many events were sent to ____ only and not ____
+Select * From ____
+WHERE ____ = '____' AND ____ BETWEEN '3-12-18' AND '5-1-19'
+ORDER BY ____
 
 
--- T-Pow Service Rate
+-- ____ Service Rate
 /* To get the service rate take each row and subtract from it the row above it. Ex) service time of 
-event id 473: 36,154 seconds - 36,100 seconds = 54 seconds to triage the event. Entire calulation done in excel */
---- excel file path: H:\Quality and Safety\Interns\DMAIC Incident Management\Excel Files\T-Pow Service Rate.xlsx
---- excel file output shows average of 98 seconds for T-POW to triage an event
-Select	eventid,
-		NoFurtherActionRequired AS [Action Type], -- Shows that both type of T-Pow actions are considered (0 or 1)
-		EventTriagedToDeptBy, --shows who triaged the event
-		EventTriagedtoDeptDt AS [Triaged Time Stamp], --Time event was sent to a department workbench
-		DATEDIFF(second, 0, CAST(EventTriagedtoDeptDt AS time)) AS [Time in Seconds] --using seconds because lots of events are processed in under a minute
-From QaEventTriageWorkBench
-WHERE	EventTriageEntityCode = 'DQS' --not interested in NQS events *NQS event timestamps that T-Pow applys 'no further action' do not effect this analysis and are logged in a different table*
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01') --This date range should exclude the start up period in March for OpenQA2.0
-		AND (CAST(EventTriagedToDeptDt AS TIME) BETWEEN '09:30:00' AND '12:00:00') --Standard work flow for T-pow is suppose to opperate in this time frame each day
-		AND (EventTriagedToDeptBy='vadaszc' OR EventTriagedToDeptBy='fernandj' OR EventTriagedToDeptBy='henryn' 
-		OR EventTriagedToDeptBy='concanns' OR EventTriagedToDeptBy='moulderr' OR EventTriagedToDeptBy='llerandd') --These users process events without batching, which allows for more accurate processing times calulations
-ORDER BY EventTriagedToDeptDt
+event id ____: 36,154 seconds - 36,100 seconds = 54 seconds to triage the event. Entire calulation done in excel */
+--- excel file path: H:____
+--- excel file output shows average of 98 seconds for ____ to triage an event
+Select	____,
+		____ AS [Action Type], -- Shows that both type of ____ actions are considered (0 or 1)
+		____, --shows who triaged the event
+		____ AS [Triaged Time Stamp], --Time event was sent to a department workbench
+		DATEDIFF(second, 0, CAST(____ AS time)) AS [Time in Seconds] --using seconds because lots of events are processed in under a minute
+From ____
+WHERE	____ = '____' --not interested in ____ events *____ event timestamps that ____ applys 'no further action' do not effect this analysis and are logged in a different table*
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01') --This date range should exclude the start up period in March for ____
+		AND (CAST(____ AS TIME) BETWEEN '09:30:00' AND '12:00:00') --Standard work flow for ____ is suppose to opperate in this time frame each day
+		AND (____='____' OR ____='____' OR ____='____' 
+		OR ____='____' OR ____='____' OR ____='____') --These users process events without batching, which allows for more accurate processing times calulations
+ORDER BY ____
 
 
 -- % triaged vs % not triaged
