@@ -68,301 +68,301 @@ ORDER BY ____
 -- % triaged vs % not triaged
 -- output shows 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/15110*100 AS [Percent Triaged]
-From QaEventTriageWorkBench
-Where EventTriageEntityCode = 'DQS' AND (EventTriagedToDeptDt BETWEEN '2018-06-1' AND '2019-06-01')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/15110*100 AS [Percent Triaged]
+From ____
+Where ____ = '____' AND (____ BETWEEN '2018-06-1' AND '2019-06-01')
+Group By ____
 
-SELECT NoFurtherActionRequired
-FROM QaEventTriageWorkBench
-WHERE EventTriageEntityCode = 'DQS' AND (EventTriagedToDeptDt BETWEEN '2018-06-1' AND '2019-06-01')
+SELECT ____
+FROM ____
+WHERE ____ = '____' AND (____ BETWEEN '2018-06-1' AND '2019-06-01')
 
 
 
--- % Triaged vs % not triaged By Each T-Pow, *2018-03-12 to 2019-5-1
+-- % Triaged vs % not triaged By Each ____, *2018-03-12 to 2019-5-1
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1544*100 AS [Percent Triaged by 'Carmela']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='cunneenc')
-Group By NoFurtherActionRequired
-
-Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1372*100 AS [Percent Triaged by 'Sarah']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='JonesS2')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1544*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1460*100 AS [Percent Triaged by 'Natalie']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='HenryN')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1372*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/2078*100 AS [Percent Triaged by 'Chris']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='cheaverc')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1460*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1631*100 AS [Percent Triaged by 'Jimmy']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='fernandj')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/2078*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1532*100 AS [Percent Triaged by 'Yana']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='vinogray')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1631*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1067*100 AS [Percent Triaged by 'Susan F']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='filshies')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1532*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/778*100 AS [Percent Triaged by 'Susan C']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='Concanns')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1067*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/949*100 AS [Percent Triaged by 'Cathy']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='vadaszc')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/778*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1156*100 AS [Percent Triaged by 'Robin']
-From QaEventTriageWorkBench
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='moulderr')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/949*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 Select 
-		NoFurtherActionRequired,
-		COUNT(NoFurtherActionRequired) AS [# of Events],
-		CAST(COUNT(NoFurtherActionRequired) AS decimal(10,2))/1500*100 AS [Percent Triaged by 'Diane']
-From QaEventTriageWorkBench
-Where EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-		AND (EventTriagedToDeptBy='llerandd')
-Group By NoFurtherActionRequired
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1156*100 AS [Percent Triaged by '____']
+From ____
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
+
+Select 
+		____,
+		COUNT(____) AS [# of Events],
+		CAST(COUNT(____) AS decimal(10,2))/1500*100 AS [Percent Triaged by '____']
+From ____
+Where ____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+		AND (____='____')
+Group By ____
 
 
 
 
 --- % of Events Triaged to Each Department Including Regional Events
-/* Results are graphed in excel and also grouped by person in excel too */
+/* Results are graphed in excel and also grouped by person in excel */
 Select 
-		EventTriageActionEntity,
-		COUNT(EventTriageActionEntity) AS [# of Events Triaged to Dept Workbenchs],
-		CAST(COUNT(EventTriageActionEntity)/4453.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
-FROM QaEventTriageAction
-WHERE	(EventTriageActionCode = '103')
-		AND (EventTriageActionEntity != 'NQS')
-		AND (EventTriageActionEnterDt BETWEEN '2018-03-12' AND '2019-05-01')
-GROUP BY EventTriageActionEntity
-ORDER BY COUNT(EventTriageActionEntity) DESC
+		____,
+		COUNT(____) AS [# of Events Triaged to Dept Workbenchs],
+		CAST(COUNT(____)/4453.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
+FROM ____
+WHERE	(____ = '103')
+		AND (____ != '____')
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+GROUP BY ____
+ORDER BY COUNT(____) DESC
 
 
 --- % of Events Triaged to Each Department Excludig Regional Events
 /* Results are graphed in excel and also grouped by person in excel too */
-Select	EventTriageActionEntity,
-		COUNT(EventTriageActionEntity) AS [# of Events Triaged to Dept Workbenchs],
-		CAST(COUNT(EventTriageActionEntity)/3363.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
-FROM QaEventTriageAction A
-LEFT JOIN QaEventInfo B 
-ON A.EventId = B.EventId
-WHERE (A.EventTriageActionEnterDt BETWEEN '2018-04-13' AND '2019-05-01')
-	AND (A.EventTriageActionCode = '103')
-	AND (A.EventTriageActionEntity != 'NQS')
-	AND (B.IsRegional IS NULL)
-GROUP BY EventTriageActionEntity
-ORDER BY COUNT(EventTriageActionEntity) DESC
+Select	____,
+		COUNT(____) AS [# of Events Triaged to Dept Workbenchs],
+		CAST(COUNT(____)/3363.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
+FROM ____ A
+LEFT JOIN ____ B 
+ON A.____ = B.____
+WHERE (A.____ BETWEEN '2018-04-13' AND '2019-05-01')
+	AND (A.____ = '103')
+	AND (A.____ != '____')
+	AND (B.____ IS NULL)
+GROUP BY ____
+ORDER BY COUNT(____) DESC
 
 
--- Cathy Request for Raw Data of Above Query
-Select A.EventId, B.RISQFileId, EventTriageEnterDt, EventTriagedToDeptBy, CASE WHEN NoFurtherActionRequired = 1 THEN 'NFA' ELSE 'Triaged' end
-From QaEventTriageWorkBench A LEFT JOIN QaEventInfo B ON A.EventId = B.EventId 
-Where	EventTriageEntityCode = 'DQS' 
-		AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
+-- ____ Request for Raw Data of Above Query
+Select A.____, B.____, ____, ____, CASE WHEN ____ = 1 THEN 'NFA' ELSE 'Triaged' end
+From ____ A LEFT JOIN ____ B ON A.____ = B.____ 
+Where	____ = '____' 
+		AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
 
-Select A.EventId, B.RISQFileId, EventTriageEnterDt, EventTriagedToDeptBy, act.EventTriageActionEntity 'TriagedByTPOW',
-CASE WHEN NoFurtherActionRequired = 1 THEN 'NFA' ELSE 'Triaged' end as 'Triaged?', a.eventtriagecomment 'Agnes Comment'
-From QaEventTriageWorkBench A LEFT JOIN QaEventInfo B ON A.EventId = B.EventId
-left join QaEventTriageAction act on a.eventtriageid = act.EventTriageId and act.EventTriageActionCode = '103'
-Where  EventTriageEntityCode = 'DQS' 
-            AND (EventTriagedToDeptDt BETWEEN '2018-03-12' AND '2019-05-01')
-                     and a.EventTriagedToDeptBy <> 'PatelD3'
-                     order by RISQFileId
+Select A.____, B.____, ____, ____, act.____ '____',
+CASE WHEN ____ = 1 THEN 'NFA' ELSE 'Triaged' end as 'Triaged?', a.____ '____'
+From ____ A LEFT JOIN ____ B ON A.____ = B.____
+left join ____ act on a.____ = act.____ and act.____ = '103'
+Where  ____ = '____' 
+            AND (____ BETWEEN '2018-03-12' AND '2019-05-01')
+                     and a.____ <> '____'
+                     order by ____
 
 
 --- % of Events Sent for QA Review
---For the above ^ Refer to Ishita's Tableau Dashboard
+--For the above ^ Refer to ____ Tableau Dashboard
 
 
-------------------------------------------------- Department Workbench Analysis ------------------------------------------------------------
+------------------------------------------------- Step #3 Department Workbench Analysis ------------------------------------------------------------
 
 --- Days in Workbench
-SELECT	EventID,
-		EventTriageActionCode,
-		EventTriageActionEnterDt,
-		DATEDIFF(DAY, '2018-01-01', EventTriageActionEnterDt) AS [Date/Time Converted into Days], ---using '2018-01-01' as the start date for the calculation so that i have a constant measurement point, excel has trouble substracting cells with date and time in one cell
-		DATEDIFF(HOUR, '2018-01-01', EventTriageActionEnterDt) AS [Date/Time Converted into Hours]
-FROM QaEventTriageAction
-WHERE EventTriageActionCode IN ('103', '107')
-ORDER BY EventId, EventTriageActionEnterDt
+SELECT	____,
+		____,
+		____,
+		DATEDIFF(DAY, '2018-01-01', ____) AS [Date/Time Converted into Days], ---using '2018-01-01' as the start date for the calculation so that i have a constant measurement point, excel has trouble substracting cells with date and time in one cell
+		DATEDIFF(HOUR, '2018-01-01', ____) AS [Date/Time Converted into Hours]
+FROM ____
+WHERE ____ IN ('103', '107')
+ORDER BY ____, ____
 
 
---- DQS repersentative Workload Distribution (including regional events)
+--- ____ repersentative Workload Distribution (including regional events)
 --- results are displayed as a graph using excel
-/* psychiatry workbench has had many owners over this time peroid so a fixed number of 145 events is added to the excel 
-file representing the past owners on psychiatry workbench. 145 is also added to the total count below in the mathmatical
+/* psychiatry workbench has had many owners over this time peroid so a fixed number of ____ events is added to the excel 
+file representing the past owners on psychiatry workbench. ____ is also added to the total count below in the mathmatical
 equation section of the code. */
-/* SELECT	EventTriageActionEnterBy AS [DQS Representative],
-		COUNT(EventTriageActionEnterBy) AS [# of Events Processed],
-		CAST(COUNT(EventTriageActionEnterBy)/3104.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
-FROM QaEventTriageAction
-WHERE	(EventTriageActionEnterBy = 'llerandd' OR EventTriageActionEnterBy = 'CunneenC' OR 
-		EventTriageActionEnterBy = 'JonesS2' OR	EventTriageActionEnterBy = 'cheaverc' 
-		OR EventTriageActionEnterBy = 'fernandj' OR EventTriageActionEnterBy = 'vinogray' 
-		OR EventTriageActionEnterBy = 'moulderr')
-		AND	(EventTriageActionEnterDt BETWEEN '2018-04-13' AND '2019-05-01')
-		AND (EventTriageActionCode = '107')
-GROUP BY EventTriageActionEnterBy
-ORDER BY COUNT(EventTriageActionEnterBy) DESC
+/* SELECT	____ AS [____ Representative],
+		COUNT(____) AS [# of Events Processed],
+		CAST(COUNT(____)/3104.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
+FROM ____
+WHERE	(____ = '____' OR ____ = '____' OR 
+		____ = '____' OR	____ = '____' 
+		OR ____ = '____' OR ____ = '____' 
+		OR ____ = '____')
+		AND	(____ BETWEEN '2018-04-13' AND '2019-05-01')
+		AND (____ = '107')
+GROUP BY ____
+ORDER BY COUNT(____) DESC
 
 
 
---- DQS repersentative Workload Distribution (excluding regional events)
+--- ____ repersentative Workload Distribution (excluding regional events)
 --- results are displayed as a graph using excel
-/* psychiatry workbench has had many owners over this time peroid so a fixed number of 145 events is added to the excel 
-file representing the past owners on psychiatry workbench. 145 is also added to the total count below in the mathmatical
+/* psychiatry workbench has had many owners over this time peroid so a fixed number of ____ events is added to the excel 
+file representing the past owners on psychiatry workbench. ____ is also added to the total count below in the mathmatical
 equation section of the code. */
-SELECT	EventTriageActionEnterBy AS [DQS Representative],
-		COUNT(EventTriageActionEnterBy) AS [# of Events Processed],
-		CAST(COUNT(EventTriageActionEnterBy)/2933.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
-FROM QaEventTriageAction A LEFT JOIN QaEventInfo B 
-ON A.EventId = B.EventId
-WHERE	(EventTriageActionEnterBy = 'llerandd' OR EventTriageActionEnterBy = 'CunneenC' OR 
-		EventTriageActionEnterBy = 'JonesS2' OR	EventTriageActionEnterBy = 'cheaverc' 
-		OR EventTriageActionEnterBy = 'fernandj' OR EventTriageActionEnterBy = 'vinogray' 
-		OR EventTriageActionEnterBy = 'moulderr')
-		AND	(A.EventTriageActionEnterDt BETWEEN '2018-04-13' AND '2019-05-01')
-		AND (A.EventTriageActionCode = '107')
-		AND (B.IsRegional IS NULL)
-GROUP BY EventTriageActionEnterBy
-ORDER BY COUNT(EventTriageActionEnterBy) DESC
+SELECT	____ AS [____ Representative],
+		COUNT(____) AS [# of Events Processed],
+		CAST(COUNT(____)/2933.00*100 AS NUMERIC(6,2)) AS [% of Total Events]
+FROM ____ A LEFT JOIN ____ B 
+ON A.____ = B.____
+WHERE	(____ = '____' OR ____ = '____' OR 
+		____ = '____' OR	____ = '____' 
+		OR ____ = '____' OR ____ = '____' 
+		OR ____ = '____')
+		AND	(A.____ BETWEEN '2018-04-13' AND '2019-05-01')
+		AND (A.____ = '107')
+		AND (B.____ IS NULL)
+GROUP BY ____
+ORDER BY COUNT(____) DESC
 
---- Shows the 145 Psychiatry events
-SELECT	EventTriageActionEntity
-FROM QaEventTriageAction
-WHERE EventTriageActionEntity = 'Case Management QA'
-AND (EventTriageActionEnterDt BETWEEN '2018-04-13' AND '2019-05-01')
+--- Shows the ____ Psychiatry events
+SELECT	____
+FROM ____
+WHERE ____ = 'Case Management QA'
+AND (____ BETWEEN '2018-04-13' AND '2019-05-01')
 
 
-SELECT	DISTINCT(EventTriageActionEntity)
-FROM QaEventTriageAction */
+SELECT	DISTINCT(____)
+FROM ____ */
 
-------------------------------------------------- Sign Workbench Analysis ------------------------------------------------------------------
+-------------------------------------------------Step #4 Sign off Workbench Analysis ------------------------------------------------------------------
 SELECT * 
-FROM QaEventTriageAction
-ORDER BY Eventtriageid
+FROM ____
+ORDER BY ____
 
 --- Sign off Lead Time
-SELECT	EventTriageid,
-		EventTriageActionCode,
-		EventTriageActionEntity AS [Triaged To],
-		EventTriageActionEnterDt AS [Date/Time of Triage],
-		DATEDIFF(Day, '2018-01-01', EventTriageActionEnterDt) AS [Date/Time Converted into Days], ---using '2018-01-01' as the start start of the time calculation so that i have a constant measurement point, excel is then used to calculate the difference between rows
-		DATEDIFF(HOUR, '2018-01-01', EventTriageActionEnterDt) AS [Date/Time Converted into Hours],
-		DATEDIFF(MINUTE, '2018-01-01', EventTriageActionEnterDt) AS [Date/Time Converted into Minutes]
-FROM QaEventTriageAction
-WHERE	EventTriageActionCode = '107' OR EventTriageActionCode = '108'	--- shows the first time stamp as time entered workbench and the second time stamp as 
-ORDER BY EventTriageId, EventTriageActionEnterDt
+SELECT	____,
+		____,
+		____ AS [Triaged To],
+		____ AS [Date/Time of Triage],
+		DATEDIFF(Day, '2018-01-01', ____) AS [Date/Time Converted into Days], ---using '2018-01-01' as the start start of the time calculation so that i have a constant measurement point, excel is then used to calculate the difference between rows
+		DATEDIFF(HOUR, '2018-01-01', ____) AS [Date/Time Converted into Hours],
+		DATEDIFF(MINUTE, '2018-01-01', ____) AS [Date/Time Converted into Minutes]
+FROM ____
+WHERE	____ = '107' OR ____ = '108'	--- shows the first time stamp as time entered workbench and the second time stamp as 
+ORDER BY ____, ____
 --- this ^ output is then used in excel to calculate the time eplapsed between the 107(send to signoff) and 108(signed off) codes
 
 
 --- Sign off Workbench Cycle Time
-SELECT	EventTriageActionId,
-		EventTriageActionCode,
-		EventTriageActionEntity,
-		EventTriageActionEnterDt
-FROM QaEventTriageAction
-WHERE EventTriageActionCode = '108' AND EventTriageActionEnterDt BETWEEN '2018-3-12' AND '2019-3-12'
---- this ^ output is then used in excel to calculate the time between each signoff(108) code
+SELECT	____,
+		____,
+		____,
+		____
+FROM ____
+WHERE ____ = '108' AND ____ BETWEEN '2018-3-12' AND '2019-3-12'
+--- this ^ output is then used in excel to calculate the time between each signoff(____) code
 
 
 --- Number of Events Failing Sign Off
-SELECT	EventTriageid,
-		EventTriageActionCode,
-		EventTriageActionEnterBy,
-		EventTriageActionEnterDt
-FROM QaEventTriageAction
-WHERE	EventTriageActionCode = '109'	
-ORDER BY EventTriageActionEnterDt
+SELECT	____,
+		____,
+		____,
+		____
+FROM ____
+WHERE	____ = '109'	
+ORDER BY ____
 
 
 --- Volume of Signed off Events per Month
-SELECT	CONVERT(CHAR(2), EventTriageActionEnterDt, 101) + '-' + CONVERT(CHAR(4), EventTriageActionEnterDt, 120) AS [Month],
-		COUNT(CONVERT(CHAR(2), EventTriageActionEnterDt, 101) + '-' + CONVERT(CHAR(4), EventTriageActionEnterDt, 120)) AS [# of events signed off per month]
-FROM QaEventTriageAction
-WHERE EventTriageActionCode = '108'
-GROUP BY CONVERT(CHAR(2), EventTriageActionEnterDt, 101) + '-' + CONVERT(CHAR(4), EventTriageActionEnterDt, 120)
-ORDER BY CONVERT(CHAR(2), EventTriageActionEnterDt, 101) + '-' + CONVERT(CHAR(4), EventTriageActionEnterDt, 120)
+SELECT	CONVERT(CHAR(2), ____, 101) + '-' + CONVERT(CHAR(4), ____, 120) AS [Month],
+		COUNT(CONVERT(CHAR(2), ____, 101) + '-' + CONVERT(CHAR(4), ____, 120)) AS [# of events signed off per month]
+FROM ____
+WHERE ____ = '108'
+GROUP BY CONVERT(CHAR(2), ____, 101) + '-' + CONVERT(CHAR(4), ____, 120)
+ORDER BY CONVERT(CHAR(2), ____, 101) + '-' + CONVERT(CHAR(4), ____, 120)
 
 
 --- Volume of Signed off Events per Day
-SELECT	CAST(EventTriageActionEnterDt AS Date) AS [Date],
-		COUNT(CAST(EventTriageActionEnterDt AS Date)) AS [# of signed of events]
-FROM QaEventTriageAction
-WHERE EventTriageActionCode = '108' AND EventTriageActionEnterDt BETWEEN '2018-3-12' AND '2019-3-12'
-GROUP BY CAST(EventTriageActionEnterDt AS Date)
-ORDER BY CAST(EventTriageActionEnterDt AS Date)
+SELECT	CAST(____ AS Date) AS [Date],
+		COUNT(CAST(____ AS Date)) AS [# of signed of events]
+FROM ____
+WHERE ____ = '108' AND ____ BETWEEN '2018-3-12' AND '2019-3-12'
+GROUP BY CAST(____ AS Date)
+ORDER BY CAST(____ AS Date)
 
 
 
